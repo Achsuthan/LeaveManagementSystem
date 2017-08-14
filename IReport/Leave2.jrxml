@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leave2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="96e75a77-bdb8-43d4-a9d0-eb12ac45644a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="EMP_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     applyleave.`LeaveID` AS applyleave_LeaveID,
+     applyleave.`EmployeeID` AS applyleave_EmployeeID,
+     applyleave.`StartDate` AS applyleave_StartDate,
+     applyleave.`LeaveDays` AS applyleave_LeaveDays,
+     applyleave.`Purpose` AS applyleave_Purpose,
+     applyleave.`Status` AS applyleave_Status
+FROM
+     `applyleave` applyleave
+where EmployeeID=$P{EMP_ID}]]>
+	</queryString>
+	<field name="applyleave_LeaveID" class="java.lang.Integer"/>
+	<field name="applyleave_EmployeeID" class="java.lang.String"/>
+	<field name="applyleave_StartDate" class="java.lang.String"/>
+	<field name="applyleave_LeaveDays" class="java.lang.Integer"/>
+	<field name="applyleave_Purpose" class="java.lang.String"/>
+	<field name="applyleave_Status" class="java.lang.String"/>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="1d5df192-2029-4497-895c-92d64e5ee1bd"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="93614ec6-877a-47d0-92b5-a320a976a367"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="3afbc512-cb4d-4325-838b-1e04482cd0ba"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="c8e2eb2d-fbe8-402b-9a90-62417c0d427f"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="e34958fd-a4e2-4755-99be-5abf099f1490"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[HEXA GROUP PVT (LTD)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="9b676786-04c8-4a80-b66d-facdc882f530"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Detailed Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="dc9ca6f6-044a-4dc5-82f0-100420ee4e95"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="117" height="15" uuid="2548d013-c71a-4364-94f1-2f01269699c4"/>
+					<text><![CDATA[LeaveID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="117" y="0" width="117" height="15" uuid="66c7f324-4333-4f85-8089-d6076cd7582c"/>
+					<text><![CDATA[EmployeeID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="234" y="0" width="117" height="15" uuid="ff5361b0-faba-4856-b029-a313226abb98"/>
+					<text><![CDATA[StartDate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="351" y="0" width="117" height="15" uuid="d5ba4735-789c-4777-a1b9-157757a0361f"/>
+					<text><![CDATA[LeaveDays]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="468" y="0" width="117" height="15" uuid="6f168536-de65-4216-913e-d350ef28708a"/>
+					<text><![CDATA[Purpose]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="585" y="0" width="117" height="15" uuid="dd376a7d-7a78-4134-8ff5-5f9ff860742c"/>
+					<text><![CDATA[Status]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="81dfcd18-04cb-47a7-ae59-3da8a700a258"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="117" height="15" uuid="912af17e-497d-4c47-b924-20bbda601582"/>
+					<textFieldExpression><![CDATA[$F{applyleave_LeaveID}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="117" y="0" width="117" height="15" uuid="6cca6b46-1387-4d84-9080-ac0564c31767"/>
+					<textFieldExpression><![CDATA[$F{applyleave_EmployeeID}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="234" y="0" width="117" height="15" uuid="5bc55f53-5088-406d-988d-15b48f11d4a7"/>
+					<textFieldExpression><![CDATA[$F{applyleave_StartDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="351" y="0" width="117" height="15" uuid="598c39e4-25d9-452e-817f-9425caded4e4"/>
+					<textFieldExpression><![CDATA[$F{applyleave_LeaveDays}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="468" y="0" width="117" height="15" uuid="80308191-c169-4e1c-ad45-b40aa807ec22"/>
+					<textFieldExpression><![CDATA[$F{applyleave_Purpose}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="585" y="0" width="117" height="15" uuid="7fcd9636-0095-442f-93f0-a143f5c401af"/>
+					<textFieldExpression><![CDATA[$F{applyleave_Status}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="fc4b1d29-6ba6-48d3-bbd2-6756dc182bda"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="b4b17fbe-887a-4db4-a8ce-424d0c58a5a0"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="2e8cb5c4-c68b-4493-a197-a974af2bdb5e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
